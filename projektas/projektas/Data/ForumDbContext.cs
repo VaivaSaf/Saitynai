@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using projektas.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using MySql.EntityFrameworkCore.Extensions;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using projektas.Auth.Model;

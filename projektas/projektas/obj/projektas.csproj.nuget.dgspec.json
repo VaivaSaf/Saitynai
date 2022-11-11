@@ -51,7 +51,7 @@
             },
             "EntityFramework": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -88,14 +88,6 @@
             "Microsoft.Graph": {
               "target": "Package",
               "version": "[4.44.0, )"
-            },
-            "MySql.Data.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.10.9, )"
-            },
-            "MySql.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.17, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
