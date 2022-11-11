@@ -23,7 +23,8 @@ namespace projektas.Data
             if (!optionsBuilder.IsConfigured)
             {
                 // optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=kolekcionierius");
-                optionsBuilder.UseMySql("server=localhost;port=3306;database=kolekcionierius;uid=root;pwd=;Convert Zero Datetime=True;", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.36-mysql"));
+                optionsBuilder.UseSqlServer("Server=tcp:saitynai-db-serveris.database.windows.net,1433;Initial Catalog=saitynai-db;Persist Security Info=False;User ID=azureadmin;Password=Slaptazodis.1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                //optionsBuilder.UseMySql("server=localhost;port=3306;database=kolekcionierius;uid=root;pwd=;Convert Zero Datetime=True;", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.36-mysql"));
             }
         }
     }
