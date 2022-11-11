@@ -2,18 +2,18 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY projektas/projektas.csproj .
+COPY projektas/projektas/projektas.csproj .
 RUN dotnet restore -r linux-musl-arm64 /p:PublishReadyToRun=true
 
 # copy everything else and build app
-COPY projektas/. .
+COPY projektas/projektas/. .
 RUN dotnet publish -c Release -o /app -r linux-musl-arm64 --self-contained true --no-restore /p:PublishTrimmed=true /p:PublishReadyToRun=true /p:PublishSingleFile=true
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/runtime-deps:5.0-alpine-arm64v8
 WORKDIR /app
 COPY --from=build /app .
-ENTRYPOINT ["./projektas"]
+ENTRYPOINT [".projektas/projektas"]
 
 # See: https://github.com/dotnet/announcements/issues/20
 # Uncomment to enable globalization APIs (or delete)
