@@ -6887,11 +6887,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vaiva\\Desktop\\saitynu_projektas\\projektas\\projektas\\projektas.csproj",
+      "projectUniqueName": "C:\\Users\\Vaiva\\Documents\\saitynai\\Saitynai\\projektas\\projektas\\projektas.csproj",
       "projectName": "projektas",
-      "projectPath": "C:\\Users\\Vaiva\\Desktop\\saitynu_projektas\\projektas\\projektas\\projektas.csproj",
+      "projectPath": "C:\\Users\\Vaiva\\Documents\\saitynai\\Saitynai\\projektas\\projektas\\projektas.csproj",
       "packagesPath": "C:\\Users\\Vaiva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vaiva\\Desktop\\saitynu_projektas\\projektas\\projektas\\obj\\",
+      "outputPath": "C:\\Users\\Vaiva\\Documents\\saitynai\\Saitynai\\projektas\\projektas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
