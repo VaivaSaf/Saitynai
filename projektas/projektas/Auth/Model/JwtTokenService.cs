@@ -28,13 +28,13 @@ namespace projektas.Auth.Model
             _audience = configuration["JWT:ValidAudience"];
         }
 
-        public string CreateAccesssToken(string userName, string userID, IEnumerable<string> userRoles)
+        public string CreateAccesssToken(string userName, string userId, IEnumerable<string> userRoles)
         {
             var authClaims = new List<Claim>
             {
                 new(ClaimTypes.Name, userName),
                 new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new(JwtRegisteredClaimNames.Sub, userID)
+                new(JwtRegisteredClaimNames.Sub, userId)
             };
             authClaims.AddRange(userRoles.Select(userRole => new Claim(ClaimTypes.Role, userRole)));
 

@@ -43,7 +43,7 @@ namespace projektas.Data
             var adminExist = await _userManager.FindByNameAsync(newAdminUser.UserName);
             if(adminExist == null)
             {
-                var createAdminUser = await _userManager.CreateAsync(newAdminUser, "slaptazodis123");
+                var createAdminUser = await _userManager.CreateAsync(newAdminUser, "Slaptazodis1.");
                 if(createAdminUser.Succeeded)
                 {
                     await _userManager.AddToRolesAsync(newAdminUser, ForumRoles.All);

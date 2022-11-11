@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace projektas.Auth.Model
 {
-    public class ForumRestUser : IdentityUser
-    {
-        [PersonalData]
-        public string? Info { get; set; }
-    }
+    public class ForumRestUser : IdentityUser { }
+   // {
+      //  [PersonalData]
+      //  public string? Info { get; set; }
+    //}
 }

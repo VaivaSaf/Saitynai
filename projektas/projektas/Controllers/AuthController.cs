@@ -35,7 +35,7 @@ namespace projektas.Controllers
                 UserName = registerUserDto.UserName
             };
             var createUserResult = await _userManager.CreateAsync(newUser, registerUserDto.Password);
-            if(createUserResult.Succeeded)
+            if(!createUserResult.Succeeded)
             {
                 return BadRequest("Could nor create a user");
             }
@@ -50,7 +50,7 @@ namespace projektas.Controllers
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
             var user = await _userManager.FindByNameAsync(loginDto.UserName);
-            if (user != null)
+            if (user == null)
             {
                 return BadRequest("User name or password is invalid");
             }

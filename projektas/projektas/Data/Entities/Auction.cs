@@ -7,7 +7,7 @@ using projektas.Auth.Model;
 
 namespace projektas.Data.Entities
 {
-    public class Auction
+    public class Auction : IUserOwnedResource
     {
         [Required]
         public int Id { get; set; }

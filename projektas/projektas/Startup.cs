@@ -15,7 +15,10 @@ using projektas.Auth.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-
+using projektas.Auth;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace projektas
 {
@@ -31,17 +34,24 @@ namespace projektas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
             services.AddSwaggerGen();
             services.AddRazorPages();
             services.AddControllers();
+            // kaip userio entity vadinas? xd
+            services.AddIdentity<ForumRestUser, IdentityRole>(o =>
+            {
+                o.Password.RequireDigit = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 6;
+            })
+                .AddEntityFrameworkStores<ForumDbContext>()
+                .AddDefaultTokenProviders();
 
-            services.AddIdentity<ForumRestUser, IdentityRole>()
-             .AddEntityFrameworkStores<ForumDbContext>()
-             .AddDefaultTokenProviders();
-
-            services.AddDbContext<ForumDbContext>();
-
-          
+       
 
             services.AddAuthentication(options =>
             {
@@ -56,6 +66,7 @@ namespace projektas
                 options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]));
             }
             );
+            services.AddDbContext<ForumDbContext>();
 
             services.AddTransient<IOffersRepository, OffersRepository>();
             services.AddTransient<IItemsRepository, ItemsRepository>();
@@ -63,6 +74,13 @@ namespace projektas
             services.AddTransient<IJwtTokenService, JwtTokenService>();
             services.AddScoped<AuthDbSeeder>();
             services.AddControllers(options => options.SuppressAsyncSuffixInActionNames = false);
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(PolicyNames.ResourceOwner, policy => policy.Requirements.Add(new ResourceOwnerRequirement()));
+            });
+
+            services.AddSingleton<IAuthorizationHandler, ResourceOwnerAuthorizationHandler>();
 
         }
 
@@ -84,14 +102,20 @@ namespace projektas
             app.UseStaticFiles();
 
             app.UseRouting();
-            //  app.MapControllers();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+
+            using var scope = app.ApplicationServices.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<ForumDbContext>();
+            dbContext.Database.Migrate();
+
             var dbSeeder = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<AuthDbSeeder>();
             await dbSeeder.SeedAsync();
 

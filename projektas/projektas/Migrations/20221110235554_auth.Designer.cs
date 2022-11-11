@@ -9,8 +9,8 @@ using projektas.Data;
 namespace projektas.Migrations
 {
     [DbContext(typeof(ForumDbContext))]
-    [Migration("20221110185214_identity3")]
-    partial class identity3
+    [Migration("20221110235554_auth")]
+    partial class auth
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -165,9 +165,6 @@ namespace projektas.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Info")
-                        .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
