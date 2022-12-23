@@ -63,16 +63,18 @@ Prieš pradedant kurti kliento dalį buvo pasidaryti projektuojamos sąsajos lan
 # API specifikacija
 Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktams, pasiūlymams, ir 2 yra skirti autentifikacijai - prisijungimui bei registracijai.
 
-GET visi aukcionai
-Metodas	GET
-Autentifikacija	Nėra
-Parametrai	Nėra
-URL	https://projektas.azurewebsites.net/api/auctions
-Aprašymas	Grąžina visus aukcionus
-Atsako kodai	200
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions
-Atsakas	[
+|   |  GET visi aukcionai |
+| - | - | 
+| Metodas | GET |
+| Autentifikacija | Nėra |
+| Parametrai | Nėra |
+| URL | https://projektas.azurewebsites.net/api/auctions |
+| Aprašymas | Grąžina visus aukcionus |
+| Atsako kodai | 200 |
+| Užklausa | https://projektas.azurewebsites.net/api/auctions |
+##### Atsakas  
+```json 
+[
   {
     "id": 1,
     "name": "Aukcionas 1",
@@ -90,17 +92,21 @@ Atsakas	[
     "creationDate": "2022-11-11T07:27:32.0824492"
   }
 ]
+```
 
-GET vienas aukcionas
-Metodas	GET
-Autentifikacija	Nėra
-Parametrai	Id -  aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:id
-Aprašymas	Grąžina vieną konkretų aukcioną
-Atsako kodai	200
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/1
-Atsakas	[
+
+|   |  GET vienas aukcionas |
+| - | - | 
+| Metodas | GET  |
+| Autentifikacija  | Nėra  |
+| Parametrai  | Id -  aukciono numeris  |
+| URL  | https://projektas.azurewebsites.net/api/auctions/:id  |
+| Aprašymas  |  Grąžina vieną konkretų aukcioną |
+| Atsako kodai  | 200  |
+| Užklausa | https://projektas.azurewebsites.net/api/auctions/1  |
+##### Atsakas	
+```json
+[
   {
     "id": 1,
     "name": "Aukcionas 1",
@@ -110,17 +116,20 @@ Atsakas	[
     "creationDate": "2022-11-11T02:06:04.9198266"
   }
 ]
+```
 
-POST aukcionai
-Metodas	POST
-Autentifikacija	Admin arba SystemUser rolių turėtojai
-Parametrai	Nėra
-URL	https://projektas.azurewebsites.net/api/auctions
-Aprašymas	Prideda naują aukcioną
-Atsako kodai	201, 400, 401, 403, 404
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions
-Atsakas	[ 
+|   | POST aukcionai  |
+| - | - | 
+| Metodas  | POST  |
+|  Autentifikacija | Admin arba SystemUser rolių turėtojai  |
+|  Parametrai |  Nėra |
+| URL  |  https://projektas.azurewebsites.net/api/auctions |
+|  Aprašymas | Prideda naują aukcioną  |
+| Atsako kodai  |  201, 400, 401, 403, 404 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions  |
+##### Atsakas	
+```json 
+[ 
   {
     "id": 5,
     "name": "Naujasis aukcionas",
@@ -130,17 +139,19 @@ Atsakas	[
     "creationDate": "2022-12-11T07:27:32.0824492"
   }
 ]
-
-PUT aukcionai
-Metodas	PUT
-Autentifikacija	Admin arba SystemUser rolių turėtojai
-Parametrai	Id - aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:id
-Aprašymas	Redaguoja aukcioną
-Atsako kodai	200, 400, 401, 403, 404
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/1
-Atsakas	[ 
+```
+|   | PUT aukcionai  |
+| - | - | 
+| Metodas  | PUT  |
+| Autentifikacija  | Admin arba SystemUser rolių turėtojai  |
+| Parametrai  |  Id - aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:id |
+| Aprašymas   |  Redaguoja aukcioną |
+| Atsako kodai | 200, 400, 401, 403, 404 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/1   |
+##### Atsakas	
+```json
+[
   {
     "id": 1,
     "name": "Naujasis pakeistas aukcionas",
@@ -150,7 +161,7 @@ Atsakas	[
     "creationDate": "2022-12-11T07:27:32.0824492"
   }
 ]
-
+```
 
 DELETE aukcionai
 Metodas	DELETE
