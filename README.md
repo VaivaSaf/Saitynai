@@ -143,11 +143,11 @@ Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktam
 |   | PUT aukcionai  |
 | - | - | 
 | Metodas  | PUT  |
-| Autentifikacija  | Admin arba SystemUser rolių turėtojai  |
+| Autentifikacija  | Admin rolės turėtojai  |
 | Parametrai  |  Id - aukciono numeris |
 | URL | https://projektas.azurewebsites.net/api/auctions/:id |
-| Aprašymas   |  Redaguoja aukcioną |
-| Atsako kodai | 200, 400, 401, 403, 404 |
+| Aprašymas   |  Ištrinti aukcioną |
+| Atsako kodai | 204, 400, 401, 403 |
 | Užklausa  | https://projektas.azurewebsites.net/api/auctions/1   |
 ##### Atsakas	
 ```json
@@ -163,31 +163,31 @@ Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktam
 ]
 ```
 
-DELETE aukcionai
-Metodas	DELETE
-Autentifikacija	Admin rolės turėtojai
-Parametrai	Id - aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:id
-Aprašymas	Ištrinti aukcioną
-Atsako kodai	204, 400, 401, 403
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/1
-Atsakas	
+|  | DELETE aukcionai |
+| - | - |
+| Metodas  | DELETE  |
+| Autentifikacija  | Admin arba SystemUser rolių turėtojai  |
+| Parametrai  |  Id - aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:id |
+| Aprašymas   |  Redaguoja aukcioną |
+| Atsako kodai | 204, 400, 401, 403 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/1   |
+| Atsakas  |   |
 
 
-
-
-GET visi daiktai
-Metodas	GET
-Autentifikacija	Nėra
-Parametrai	auctionId- aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items
-Aprašymas	Grąžina visus konkretaus aukciono daiktus
-Atsako kodai	200, 400
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items
-Atsakas	[
-    {
+|  | GET visi daiktai |
+| - | - |
+| Metodas  | GET  |
+| Autentifikacija  | Nėra  |
+| Parametrai  |  auctionId- aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items |
+| Aprašymas   |  Grąžina visus konkretaus aukciono daiktus |
+| Atsako kodai | 200, 400 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/5/items |
+##### Atsakas
+```json
+[
+{
         "id": 1,
         "name": "a",
         "description": "aprasymas",
@@ -207,19 +207,21 @@ Atsakas	[
         "minimalPrice": 50.00,
         "auctionId": 5
     }
-]
+  ]
+  ```
 
-GET vienas daiktas
-Metodas	GET
-Autentifikacija	Nėra
-Parametrai	Id -  daikto numeris, auctionId – aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:id
-Aprašymas	Grąžina vieną konkretų daiktą
-Atsako kodai	200, 400
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items/1
-Atsakas	[
-  {
+|  | GET vienas daiktas |
+| - | - |
+| Metodas  | GET  |
+| Autentifikacija  | Nėra  |
+| Parametrai  |  Id -  daikto numeris, auctionId – aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:id |
+| Aprašymas   |  Grąžina vieną konkretų daiktą |
+| Atsako kodai | 200, 400 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/5/items/1 |
+##### Atsakas
+```json
+{
     "id": 1,
     "name": "a",
     "description": "aprasymas",
@@ -229,65 +231,70 @@ Atsakas	[
     "minimalPrice": 50.00,
     "auctionId": 5
   }
-]
+  
+  ```
 
-POST daiktai
-Metodas	POST
-Autentifikacija	Admin arba SystemUser rolių turėtojai
-Parametrai	auctionId - aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items
-Aprašymas	Prideda naują daiktą
-Atsako kodai	201, 400, 401, 403, 404
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items
-Atsakas	[ 
-  {
-    "id": 2,
-    "name": "Naujas daiktas",
-    "description": "aprasymas naujo daikto",
-    "category": 0,
-    "country": "Lietuva",
-    "creationDate": "2022-12-13T12:18:23.6470401",
-    "minimalPrice": 50.00,
-    "auctionId": 5
-  }
-]
+|  | POST daiktai |
+| - | - |
+| Metodas  | POST  |
+| Autentifikacija  | Admin arba SystemUser rolių turėtojai  |
+| Parametrai  |  auctionId- aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items |
+| Aprašymas   |  Prideda naują daiktą |
+| Atsako kodai | 201, 400, 401, 403, 404 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/5/items |
+##### Atsakas
+```json
+[
+	{
+		"id": 2,
+		"name": "Naujas daiktas",
+		"description": "aprasymas naujo daikto",
+		"category": 0,
+		"country": "Lietuva",
+		"creationDate": "2022-12-13T12:18:23.6470401",
+		"minimalPrice": 50.00,
+		"auctionId": 5
+	}
+ ]
+  ```
 
-PUT aukcionai
-Metodas	PUT
-Autentifikacija	Admin arba SystemUser rolių turėtojai
-Parametrai	Id – daikto numeris, auctionId - aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/id
-Aprašymas	Redaguoja daiktą
-Atsako kodai	200, 400, 401, 403, 404
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items
-Atsakas	[ 
-  {
-    "id": 2,
-    "name": "Naujas daiktas redaguotas",
-    "description": "aprasymas naujo daikto",
-    "category": 0,
-    "country": "Lietuva",
-    "creationDate": "2022-12-13T12:18:23.6470401",
-    "minimalPrice": 50.00,
-    "auctionId": 5
-  }
-]
-
-
-DELETE daiktai
-Metodas	DELETE
-Autentifikacija	Admin rolės turėtojai
-Parametrai	Id – daikto numeris, auctionId- aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:id
-Aprašymas	Ištrinti daiktą
-Atsako kodai	204, 400, 401, 403
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/6/items/23
-Atsakas	
+|  | PUT daiktai |
+| - | - |
+| Metodas  | PUT  |
+| Autentifikacija  | Admin arba SystemUser rolių turėtojai  |
+| Parametrai  |  Id – daikto numeris, auctionId - aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/id |
+| Aprašymas   |  Redaguoja daiktą |
+| Atsako kodai | 200, 400, 401, 403, 404 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/5/items |
+##### Atsakas
+```json
+[
+	{
+		 "id": 2,
+		"name": "Naujas daiktas redaguotas",
+		"description": "aprasymas naujo daikto",
+		"category": 0,
+		"country": "Lietuva",
+		"creationDate": "2022-12-13T12:18:23.6470401",
+		"minimalPrice": 50.00,
+		"auctionId": 5
+	}
+ ]
+  ```
 
 
+|  | DELETE daiktai |
+| - | - |
+| Metodas  | DELETE  |
+| Autentifikacija  | Admin rolės turėtojai  |
+| Parametrai  |  Id – daikto numeris, auctionId - aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/id |
+| Aprašymas   |  Ištrinti daiktą |
+| Atsako kodai | 204, 400, 401, 403 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/6/items/23 |
+| Atsakas |  |
 
 
 
