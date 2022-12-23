@@ -6,7 +6,7 @@ Sukurti kolekcionieriams skirtą svetainę, kurioje jie dalyvaudami ir kurdami a
 Sistema daugiausiai yra skiriama kolekcionieriams, kurie nori pelningai parduoti turimą kolekcinį inventorių ir įsigyti juos dominančius daiktus. Registruoti vartotojai norintys parduoti savo vertingus kolekcinius daiktus gali juos įkelti į sistemą, priskirti pasirinktam aukcionui. Jei keldamas daiktą prisijungęs vartotojas padarė klaidą, tai jis gali redaguoti įkeltą informaciją. Prisijungę vartotojai taip pat gali dalyvauti pačiuose aukcionuose. Tai pasirinkus dominantį aukcioną ir nuėjus į jo konkretaus dominančio daikto puslapį jis gali pateikti savo minimalios kainos pasiūlymą. Neprisiregistravęs vartotojas gali tik peržiūrėti svetainę ir prisijungti prie jos. O administratorius gali daryti viską, ką prisijungęs vartotojas, tik dar gali šalinti tiek, aukcionus, tiek daiktus, tiek pasiūlymus. 
 	
 Sistemoje yra trijų tipų vartotojai: svečias, prisiregistravęs vartotojas ir administratorius. Priklausomai pagal savo roles, svetainės languose jie arba mato tas parinktis, arba ne.
-#Fukciniai reikalavimai
+# Fukciniai reikalavimai
 	
 Svečio funckciniai reikalavimai:
 1.	peržiūrėti svetainę;
