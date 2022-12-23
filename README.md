@@ -70,7 +70,7 @@ Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktam
 | Parametrai | Nėra |
 | URL | https://projektas.azurewebsites.net/api/auctions |
 | Aprašymas | Grąžina visus aukcionus |
-| Atsako kodai | 200 |
+| Atsako kodai | 200, 400 |
 | Užklausa | https://projektas.azurewebsites.net/api/auctions |
 ##### Atsakas  
 ```json 
@@ -102,7 +102,7 @@ Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktam
 | Parametrai  | Id -  aukciono numeris  |
 | URL  | https://projektas.azurewebsites.net/api/auctions/:id  |
 | Aprašymas  |  Grąžina vieną konkretų aukcioną |
-| Atsako kodai  | 200  |
+| Atsako kodai  | 200, 400  |
 | Užklausa | https://projektas.azurewebsites.net/api/auctions/1  |
 ##### Atsakas	
 ```json
@@ -298,16 +298,18 @@ Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktam
 
 
 
-GET visi pasiūlymai
-Metodas	GET
-Autentifikacija	Nėra
-Parametrai	auctionId- aukciono numeris, itemId – daikto numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers
-Aprašymas	Grąžina visus konkretaus aukciono daikto pasiūlymus
-Atsako kodai	200, 400
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items/1/offers
-Atsakas	[
+|  | GET visi pasiūlymai |
+| - | - |
+| Metodas  | GET  |
+| Autentifikacija  | Nėra  |
+| Parametrai  |  auctionId- aukciono numeris, itemId – daikto numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers |
+| Aprašymas   |  Grąžina visus konkretaus aukciono daikto pasiūlymus |
+| Atsako kodai | 200, 400 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/5/items/1/offers |
+##### Atsakas
+```json
+[
     {
         "id": 16,
         "name": "Kristupas",
@@ -324,39 +326,46 @@ Atsakas	[
         "creationDate": "2022-12-23T04:52:48.9888406",
         "itemId": 1
     }
-]
+ ]
+  ```
 
-GET vienas pasiūlymas
-Metodas	GET
-Autentifikacija	Nėra
-Parametrai	Id – pasiūlymo numeris, itemId - daikto numeris, auctionId – aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers/:id
-Aprašymas	Grąžina vieną konkretų pasiūlymą
-Atsako kodai	200, 400
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items/1/offers/17
-Atsakas	[
-{
-    "id": 17,
-    "name": "Nijole",
-    "comment": "Grazi vaza",
-    "price": 1000.00,
-    "creationDate": "2022-12-23T04:52:48.9888406",
-    "itemId": 1
-}
-]
 
-POST pasiūlymai
-Metodas	POST
-Autentifikacija	Admin arba SystemUser rolių turėtojai
-Parametrai	auctionId - aukciono numeris, itemId – daikto numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers
-Aprašymas	Prideda naują pasiūlymą
-Atsako kodai	201, 400, 401, 403, 404
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/1/items/1/offers
-Atsakas	[ 
-  {
+|  | GET vienas pasiūlymas |
+| - | - |
+| Metodas  | GET  |
+| Autentifikacija  | Nėra  |
+| Parametrai  |  Id – pasiūlymo numeris, itemId - daikto numeris, auctionId – aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers/:id |
+| Aprašymas   |  Grąžina visus konkretaus aukciono daikto pasiūlymus |
+| Atsako kodai | 200, 400 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/5/items/1/offers/17 |
+##### Atsakas
+```json
+[
+    {
+        "id": 17,
+        "name": "Nijole",
+        "comment": "Grazi vaza",
+        "price": 1000.00,
+        "creationDate": "2022-12-23T04:52:48.9888406",
+        "itemId": 1
+    }
+ ]
+  ```
+
+|  | POST pasiūlymai |
+| - | - |
+| Metodas  | POST  |
+| Autentifikacija  | Admin arba SystemUser rolių turėtojai  |
+| Parametrai  |  auctionId - aukciono numeris, itemId – daikto numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers |
+| Aprašymas   |  Prideda naują pasiūlymą |
+| Atsako kodai | 201, 400, 401, 403, 404 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/1/items/1/offers |
+##### Atsakas
+```json
+[
+    {
     "id": 16,
     "name": "Kristupas",
     "comment": "Labai noriu isigyti.",
@@ -364,37 +373,41 @@ Atsakas	[
     "creationDate": "2022-12-23T04:48:18.3987569Z",
     "itemId": 1
    }
-]
+ ]
+  ```
 
-PUT pasiūlymai
-Metodas	PUT
-Autentifikacija	Admin arba SystemUser rolių turėtojai
-Parametrai	Id – pasiūlymo numeris, itemId - daikto numeris, auctionId - aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers/:id
-Aprašymas	Redaguoja pasiūlymą
-Atsako kodai	200, 400, 401, 403, 404
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items/1/offers/16
-Atsakas	{
-    "id": 16,
+|  | PUT pasiūlymai |
+| - | - |
+| Metodas  | PUT  |
+| Autentifikacija  | Admin arba SystemUser rolių turėtojai  |
+| Parametrai  |  Id – pasiūlymo numeris, itemId - daikto numeris, auctionId - aukciono numeris |
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers/:id |
+| Aprašymas   |  Redaguoja pasiūlymą |
+| Atsako kodai | 201, 400, 401, 403, 404 |
+| Užklausa  | ttps://projektas.azurewebsites.net/api/auctions/5/items/1/offers/16 |
+##### Atsakas
+```json
+[
+    {
+     "id": 16,
     "name": "Pakeista",
     "comment": "Pakeistas komentaras",
     "price": 6000.00,
     "creationDate": "2022-12-23T04:48:18.3987569",
     "itemId": 1
-}
+   }
+ ]
 
-
-DELETE pasiūlymai
-Metodas	DELETE
-Autentifikacija	Admin rolės turėtojai
-Parametrai	Id – pasiūlymo numeirs, itemId- daikto numeris, auctionId- aukciono numeris
-URL	https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemID/offeers/:id
-Aprašymas	Ištrinti pasiūlymą
-Atsako kodai	204, 400, 401, 403
-Pavyzdys
-Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items/1/offers/5
-Atsakas	
+|  | DELETE pasiūlymą |
+| - | - |
+| Metodas  | DELETE  |
+| Autentifikacija  | Admin rolės turėtojai  |
+| Parametrai  |  Id – pasiūlymo numeirs, itemId- daikto numeris, auctionId- aukciono numeris|
+| URL | https://projektas.azurewebsites.net/api/auctions/:auctionId/items/:itemId/offers/:id |
+| Aprašymas   |  Ištrinti pasiūlymą |
+| Atsako kodai | 204, 400, 401, 403 |
+| Užklausa  | https://projektas.azurewebsites.net/api/auctions/5/items/1/offers/5 |
+| Atsakas |  |
 
 
 # Išvados
