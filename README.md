@@ -1,12 +1,12 @@
-1.	Projekto pavadinimas
+# Projekto pavadinimas
 Projektas vadinasi „Kolekcionierius“. Pavadinimas pasirinktas pagal tikslinę auditoriją, kadangi kuriama internetinė aplikacija yra skirta būtent kolekcionieriams.
-2.	Projekto tikslas
+# Projekto tikslas
 Sukurti kolekcionieriams skirtą svetainę, kurioje jie dalyvaudami ir kurdami aukcionus galėtų pirkti bei parduoti kolekcinius daiktus.
-3.	Sistemos aprašymas
+# Sistemos aprašymas
 Sistema daugiausiai yra skiriama kolekcionieriams, kurie nori pelningai parduoti turimą kolekcinį inventorių ir įsigyti juos dominančius daiktus. Registruoti vartotojai norintys parduoti savo vertingus kolekcinius daiktus gali juos įkelti į sistemą, priskirti pasirinktam aukcionui. Jei keldamas daiktą prisijungęs vartotojas padarė klaidą, tai jis gali redaguoti įkeltą informaciją. Prisijungę vartotojai taip pat gali dalyvauti pačiuose aukcionuose. Tai pasirinkus dominantį aukcioną ir nuėjus į jo konkretaus dominančio daikto puslapį jis gali pateikti savo minimalios kainos pasiūlymą. Neprisiregistravęs vartotojas gali tik peržiūrėti svetainę ir prisijungti prie jos. O administratorius gali daryti viską, ką prisijungęs vartotojas, tik dar gali šalinti tiek, aukcionus, tiek daiktus, tiek pasiūlymus. 
 	
 Sistemoje yra trijų tipų vartotojai: svečias, prisiregistravęs vartotojas ir administratorius. Priklausomai pagal savo roles, svetainės languose jie arba mato tas parinktis, arba ne.
-4.	Fukciniai reikalavimai
+#Fukciniai reikalavimai
 	
 Svečio funckciniai reikalavimai:
 1.	peržiūrėti svetainę;
@@ -30,7 +30,7 @@ Adminstratoriaus funkciniai reikalavimai (tokie patys, kaip registruoto vartotoj
 2.	pašalinti daiktą
 3.	pašalinti pasiūlymą.
 
-5.	Technologijos
+# Technologijos
 Projektui kurti buvo pasirinktos šios technologijos:
 •	Kliento pusė (ang. Front-End) – React.js; 
 •	Serverio pusė (angl. Back-End) – C# .NET; 
@@ -39,58 +39,28 @@ Projektui kurti buvo pasirinktos šios technologijos:
  
 React yra atvirojo kodo „JavaScript“ biblioteka, naudojama kurti vartotojo sąsajas. Teigiama, kad React yra greitesnis nei HTML, nes galima kurti mažesnius ir efektyvesnius kodo failus.
 
-
-6.	Sistemos architektūra
+# Sistemos architektūra
 1 pav. yra pateikiama „Kolekcionieriaus“ diegimo diagrama. Internetinė aplikacija yra pasiekama per saugų HTTPS protokolą, per kurį komunikuoja kompiuteris ir serveris.
- 
-1 pav. „Kolekcionieriaus“ diegimo diagrama
-7.	Naudotojo sąsaja
+
+ ![Screenshot_1](https://user-images.githubusercontent.com/78726071/209276864-3631145c-92ad-4507-9c82-f2c89f4601cd.png)
+
+#Naudotojo sąsaja
 Prieš pradedant kurti kliento dalį buvo pasidaryti projektuojamos sąsajos langų „wireframe“, o po to buvo pagal juos suprogramuota. Wireframe‘uose geltonos spalvos mygtuką mato visi svetainės lankytojai, oranžinį - prisijungę vartotojai arba administratoriai, o raudoną – tik administratoriai.
 
  
-2 pav. pagrindinio lango wireframe
-
- 
-3 pav. pagrindinio lango realizacija
- 
-4 pav. prisijungimo lango wireframe
- 
-5 pav. prisijungimo lango realizacija
-
-
- 
-6 pav. aukcionų pagrindinio lango wireframe
-
- 
-7 pav. aukcionų pagrindinio lango realizacija
-
- 8 pav. aukciono pridėjimo wireframe
- 
-9pav. aukciono pridėjimo realizacija
- 
-10 pav. aukciono redagavimo wireframe
-
- 
-11 pav. aukciono redagavimo realizacija
- 
-12 pav. vieno aukciono lango wireframe
- 
-13 pav. vieno aukciono lango realizacija
+![image](https://user-images.githubusercontent.com/78726071/209277047-76a7ffd7-63b6-41fe-a2e7-ecbc6d9d563e.png)
+![image](https://user-images.githubusercontent.com/78726071/209277142-8af33abf-847b-494b-b493-153fb176c329.png)
+![image](https://user-images.githubusercontent.com/78726071/209277168-9df95e3e-4b01-48d2-9953-7a40ee71f03e.png)
+![image](https://user-images.githubusercontent.com/78726071/209277188-373c457d-4d18-4046-ac5f-cf973a78ab96.png)
+![image](https://user-images.githubusercontent.com/78726071/209277202-90b89460-2e1c-44a5-a2ce-519fe590bf7b.png)
+![image](https://user-images.githubusercontent.com/78726071/209277237-595f96c1-848a-4ea2-b25c-93ec8bbafa6e.png)
+![image](https://user-images.githubusercontent.com/78726071/209277253-e74e3974-3775-4240-99f5-0f609bef2d63.png)
+![image](https://user-images.githubusercontent.com/78726071/209277270-76229535-6086-4ca8-a80b-bb8bcc83b7f6.png)
+![image](https://user-images.githubusercontent.com/78726071/209277280-0704f3ea-6379-4946-8d1f-2dcaab335b0a.png)
 
 
-
- 
-14pav. vieno daikto lango wireframe
- 
-15 pav. vieno daikto lango realizacija
-
- 
-16 pav. vieno pasiūlymo lango wireframe
-
- 
-17pav. vieno pasiūlymo lango realizacija
  
-8.	 API specifikacija
+# API specifikacija
 Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktams, pasiūlymams, ir 2 yra skirti autentifikacijai - prisijungimui bei registracijai.
 
 GET visi aukcionai
@@ -409,5 +379,5 @@ Užklausa	https://projektas.azurewebsites.net/api/auctions/5/items/1/offers/5
 Atsakas	
 
 
-9.	Išvados
+# Išvados
 Naudojant „.NET Core“ karkasą (serverio pusei) ir „React“ (kliento pusei) buvo sukurta aukcionų svetainė. Joje galima kurta, redaguoti, peržiūrėti ir ištrinti aukcionus, kolekcinius daiktus ir pasiūlymus. Svetainėje yra 3 tipų vartotojai: svečias, prisijungęs vartotojas ir administratorius, o pagal jų roles yra pritaikytas skirtingas funkcionalumas. Svetainėje yra 17 endpointų, kurie leidžia svetainei veikti. Taip pat buvo atliktas serverio dalies diegimas diegimas debesyje („Azure“). 
