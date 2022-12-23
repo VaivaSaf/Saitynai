@@ -397,7 +397,7 @@ Projekte yra 17 API endpointų. Po 5 yra skirta aukcionams, kolekciniams daiktam
     "itemId": 1
    }
  ]
-
+```
 |  | DELETE pasiūlymą |
 | - | - |
 | Metodas  | DELETE  |
